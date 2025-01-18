@@ -1,3 +1,6 @@
 [submodule "extern/nrfx"]
 	path = extern/nrfx
 	url = https://github.com/NordicSemiconductor/nrfx.git
+[submodule "extern/CMSIS"]
+	path = extern/CMSIS
+	url = https://github.com/ARM-software/CMSIS_5.git
