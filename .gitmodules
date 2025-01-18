@@ -1,0 +1,3 @@
+[submodule "extern/nrfx"]
+	path = extern/nrfx
+	url = https://github.com/NordicSemiconductor/nrfx.git
