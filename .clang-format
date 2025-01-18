@@ -1,0 +1,18 @@
+---
+# clang-format 18.1.8 recommended
+BasedOnStyle: WebKit
+
+AlignConsecutiveMacros: AcrossComments
+AlignOperands: AlignAfterOperator
+AlignAfterOpenBracket: Align
+PointerAlignment: Right
+
+AllowShortFunctionsOnASingleLine: Empty
+
+ReflowComments: false
+ColumnLimit: 100
+
+SeparateDefinitionBlocks: Always
+SortIncludes: false
+
+LineEnding: LF

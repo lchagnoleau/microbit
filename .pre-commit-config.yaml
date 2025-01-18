@@ -1,0 +1,42 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-added-large-files
+        args:
+          - --maxkb=5120  # 5 MB
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-vcs-permalinks
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args:
+          - --strict
+          - -d
+          - '{extends: default, rules: {
+            braces: {forbid: true},
+            comments: enable, comments-indentation: enable, document-start: enable,
+            empty-values: enable, line-length: {max: 180},
+            quoted-strings: {quote-type: single, required: only-when-needed},
+            truthy: enable}}'
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/pre-commit/mirrors-clang-format
+    rev: v18.1.8
+    hooks:
+      - id: clang-format
+        types: [c]  # only run on .c and .h files
