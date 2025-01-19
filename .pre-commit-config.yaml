@@ -30,7 +30,7 @@ repos:
             comments: enable, comments-indentation: enable, document-start: enable,
             empty-values: enable, line-length: {max: 180},
             quoted-strings: {quote-type: single, required: only-when-needed},
-            truthy: enable}}'
+            truthy: disable}}'
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.10.0.1
     hooks:

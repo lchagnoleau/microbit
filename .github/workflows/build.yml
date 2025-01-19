@@ -1,0 +1,28 @@
+---
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        build-type: [Release, Debug]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Just
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y just cmake ninja-build git gcc-arm-none-eabi
+      - name: Git Submodule Update
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote --recursive
+      - name: Build
+        run: just build ${{ matrix.build-type }}

@@ -1,6 +1,6 @@
 #include <stdint.h>
-#include <ARMCM4.h>
-#include <core_cm4.h>
+#include <nrf.h>
+#include <nrf52833.h>
 
 #if defined(__GNUC__)
 #pragma GCC diagnostic push
@@ -61,6 +61,10 @@ __NO_RETURN __attribute__((noreturn)) void Reset_Handler(void)
     while (dst_ptr < dst_end) {
         *dst_ptr++ = 0;
     }
+
+#if DEBUG
+    NRF_APPROTECT->DISABLE = APPROTECT_DISABLE_DISABLE_SwDisable;
+#endif
 
     /*
      * Call constructors.
