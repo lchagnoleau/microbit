@@ -22,9 +22,9 @@ string(APPEND CMAKE_C_FLAGS " -Wall -Wextra -Wpedantic -Wno-unused-parameter -We
 
 string(APPEND CMAKE_C_FLAGS_DEBUG " -Og -g3 -ggdb3")
 
-set(LINKER_SCRIPT linker.ld)
+set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/linker.ld)
 
-set(CMAKE_EXE_LINKER_FLAGS "-T ${CMAKE_SOURCE_DIR}/${LINKER_SCRIPT} \
+set(CMAKE_EXE_LINKER_FLAGS "-T ${LINKER_SCRIPT} \
 -Wl,-Map=${TARGET_NAME}.map -Wl,--print-memory-usage \
 -Wl,--gc-sections -static")
 
